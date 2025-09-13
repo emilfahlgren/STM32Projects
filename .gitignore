@@ -1,0 +1,53 @@
+# =========================================
+# Build directories
+# =========================================
+/build/
+/Debug/
+/Release/
+
+# =========================================
+# Object files and binaries
+# =========================================
+*.o
+*.d
+*.elf
+*.bin
+*.hex
+*.map
+
+# =========================================
+# STM32CubeIDE / Eclipse metadata
+# =========================================
+.settings/
+.project
+.cproject
+
+# =========================================
+# VS Code local files
+# =========================================
+.vscode/*
+!.vscode/launch.json
+!.vscode/c_cpp_properties.json
+!.vscode/tasks.json
+
+# =========================================
+# CMake generated files
+# =========================================
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+*.cmake
+
+# =========================================
+# CubeMX generated files
+# =========================================
+/Drivers/STM32F*_HAL_Driver/Src/*.o
+/Drivers/STM32F*_HAL_Driver/Inc/*.d
+
+# =========================================
+# Other junk
+# =========================================
+*.log
+*.swp
+*.DS_Store
