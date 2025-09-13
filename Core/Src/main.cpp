@@ -19,6 +19,8 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 
+#include <vector>
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -83,6 +85,10 @@ int main(void) {
   /* USER CODE BEGIN Init */
   GPIO_PinState currState;
   GPIO_PinState prevState = GPIO_PIN_RESET;
+
+  std::vector<uint16_t> ledPins = {GPIO_PIN_8,  GPIO_PIN_9,  GPIO_PIN_10,
+                                   GPIO_PIN_11, GPIO_PIN_12, GPIO_PIN_13,
+                                   GPIO_PIN_14, GPIO_PIN_15};
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -106,8 +112,9 @@ int main(void) {
   while (1) {
     currState = HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_0);
     if (prevState == GPIO_PIN_RESET && currState == GPIO_PIN_SET) {
-      HAL_GPIO_TogglePin(GPIOE, GPIO_PIN_11);
-      HAL_GPIO_TogglePin(GPIOE, GPIO_PIN_12);
+      for (const auto &pin : ledPins) {
+        HAL_GPIO_TogglePin(GPIOE, pin);
+      }
     }
     prevState = currState;
   }
